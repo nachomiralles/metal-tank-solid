@@ -22,7 +22,7 @@ public class NavigatorMovement : MonoBehaviour
         agente.SetDestination(objetivo.position);
     }
 
-    public void setPersiguiendo(bool p)
+   /*public void setPersiguiendo(bool p)
     {
         if (!p)
         {
@@ -38,6 +38,18 @@ public class NavigatorMovement : MonoBehaviour
             Invoke("ParaDePerseguir", 5.0f);
         }
         persiguiendo = p;
+    }*/
+
+    public void Perseguir(Transform nuevoObjetivo)
+    {
+        CancelInvoke("ParaDePerseguir");
+        if (!scriptAtaque.getModoDisparoActivado())
+        {
+            scriptAtaque.ActivarModoDisparo();
+        }
+        Invoke("ParaDePerseguir", 5.0f);
+        objetivo = nuevoObjetivo;
+        persiguiendo = true;
     }
 
     public bool estaPersiguiendo()
@@ -47,14 +59,15 @@ public class NavigatorMovement : MonoBehaviour
 
     public void SetNewObjective(Transform newOjective)
     {
-
         objetivo = newOjective;
     }
 
-    private void ParaDePerseguir()
+    public void ParaDePerseguir()
     {
-        this.setPersiguiendo(false);
+        // this.setPersiguiendo(false);
+        objetivo = objetivoInicial;
         scriptAtaque.DesactivarModoDisparo();
+        persiguiendo = false;
     }
 
     void OnTriggerEnter(Collider other)
@@ -62,10 +75,10 @@ public class NavigatorMovement : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            print("Te toco");
-            Application.LoadLevel("EscenaFinPierdes");
+            ScriptDestruir des = other.gameObject.GetComponent<ScriptDestruir>();
+            des.Destruir("Player");
+            
         }
     }
-
 
 }

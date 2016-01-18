@@ -9,8 +9,7 @@ public class EnemigoDetectado : MonoBehaviour {
         if (other.tag == "Player")
         {
             NavigatorMovement agenteEnemigo = transform.parent.GetComponent<NavigatorMovement>();
-            agenteEnemigo.setPersiguiendo(true);
-            agenteEnemigo.SetNewObjective(other.transform);
+            agenteEnemigo.Perseguir(other.transform);
         }
     }
 
@@ -19,8 +18,7 @@ public class EnemigoDetectado : MonoBehaviour {
         if (other.tag == "Player")
         {
             NavigatorMovement agenteEnemigo = transform.parent.GetComponent<NavigatorMovement>();
-            agenteEnemigo.setPersiguiendo(true);
-            agenteEnemigo.SetNewObjective(other.transform);
+            agenteEnemigo.Perseguir(other.transform);
 
         }
     }

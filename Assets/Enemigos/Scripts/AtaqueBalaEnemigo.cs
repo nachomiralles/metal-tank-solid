@@ -7,7 +7,12 @@ public class AtaqueBalaEnemigo : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            Application.LoadLevel("EscenaFinPierdes");
+            ScriptDestruir des = other.gameObject.GetComponent<ScriptDestruir>();
+            //this.GetComponentInParent<NavigatorMovement>().ParaDePerseguir();
+
+            des.Destruir("Player");
+
+            //Application.LoadLevel("EscenaFinPierdes");
 
         }
     }

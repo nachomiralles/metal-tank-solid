@@ -7,8 +7,6 @@ public class PatrolPointsBehavior : MonoBehaviour
     public Transform otherPatrolPoint;
     public Transform tank;
 
-    
-
     void OnTriggerEnter(Collider other)
     {
         if (other.transform == tank)

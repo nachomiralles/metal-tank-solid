@@ -6,8 +6,7 @@ public class LaunchGameScene : MonoBehaviour {
     public void OnClick()
     {
         
-        print("Hola");
-        Application.LoadLevel("EscenaDeJuego.");
+        //Application.LoadLevel("EscenaDeJuego.");
     }
 
 }
