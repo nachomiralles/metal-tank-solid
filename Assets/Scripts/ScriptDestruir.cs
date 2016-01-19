@@ -7,6 +7,7 @@ public class ScriptDestruir : MonoBehaviour {
 
     private GameObject[] todosLosEnemigos;
     public Transform posicionFinalCamara;
+
      
     public void Destruir(string muerto)
     {
@@ -29,8 +30,10 @@ public class ScriptDestruir : MonoBehaviour {
             }
             CharacterController controlador = this.gameObject.GetComponent<CharacterController>();
             MovementController scriptMovimiento = this.gameObject.GetComponent<MovementController>();
+            ShootingController scriptDisparo = this.gameObject.GetComponent<ShootingController>();
             scriptMovimiento.enabled = false;
             controlador.enabled = false;
+            scriptDisparo.enabled = false;
 
             var tankRenderer = transform.Find("TankRenderers");
             Destroy(tankRenderer.gameObject);
