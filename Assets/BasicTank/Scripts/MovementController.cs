@@ -17,7 +17,12 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         Mover();
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.LoadLevel("EscenaInicio");
+        }
+
     }
 
     void Mover()

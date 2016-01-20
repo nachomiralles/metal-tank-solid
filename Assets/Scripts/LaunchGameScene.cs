@@ -3,10 +3,16 @@ using System.Collections;
 
 public class LaunchGameScene : MonoBehaviour {
 
-    public void OnClick()
+    void Update()
     {
-        
-        //Application.LoadLevel("EscenaDeJuego.");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Application.LoadLevel("EscenaDeJuego");
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
 }
